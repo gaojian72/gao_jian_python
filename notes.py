@@ -82,10 +82,41 @@ re.sub(r'def\s+([a-zA-Z_][a-zA-Z_0-9]*)\s*\(\s*\):',
 
 
 
+x='fuck'
+y=x.replace(x[-1],'shit')
+print(y)
+
+person = input('Enter your name: ')
+print('Hello', person)
+
+from functools import reduce  #import reduce module
+def max_in_list(list1):
+    '''
+    This function uses the higher order function reduce() to takes a list of numbers and returns the largest
+    one.
+    '''
+    return reduce(max,list1) #compare the first two numbers, and then compare the largest number in the first two with the thrid number, and so on.
+
+print(max_in_list([1,2,3,4,5]))
+
+def listlength(word):
+    '''
+    The following functions map a list of words into a list of integers
+    representing the lengths of the correponding words. Three functions are written using a for-loop.
+    '''
+    length = [] #empty list
+    for i in word:
+        length.append(len(i)) #add the length of each word in list"word" to list"length"
+    return length
+print(listlength(['I','love','python']))
 
 
+## map() function example
 
-
+items=[1, 2, 3, 4, 5]
+def sqrt(x):
+    return x ** 2
+list(map(sqrt,items))
 
 
 
