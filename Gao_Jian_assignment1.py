@@ -6,6 +6,10 @@ Homework 1 Group C
 
 @author: Jian Gao
 """
+
+## Prof G - None of your functions contained doc headers like the example I
+## Prof G - provided in class.
+## Prof G - Try using the help function with one of your functions.
 # Question 1.    
 d = {'merry': 'god', 'god':'merry', 'christmas': 'jul', 'jul':'christmas',
 'and': 'och', 'och':'and','happy': 'gott', 'gott':'happy', 
@@ -21,6 +25,7 @@ def translate(x):
 print(translate('merry christmas and happy new year'))
 #############################################################
 # Question 1 another version 
+## Prof G - Nice alternate!
 d = {"merry": "god", "christmas": "jul", "and": "och", 
       "happy": "gott", "new": "nytt", "year": "år"}
 def translate(x): 
@@ -75,6 +80,7 @@ print(encoderanddecoder('Pnrfne pvcure? V zhpu cersre Pnrfne fnynq!'))
 
 
 # Question 4.
+## Prof G - Great implementation
 import re 
 def correct(x):
 # define a new function that takes string and sees to it that 
@@ -88,6 +94,8 @@ print(correct("This  is very funny    and cool.Indeed!"))
 
 
 # Question 5. 
+
+## Prof G - parameter x, but then prompt the user for x and overwrite it.
 def make_3sg_form(x):
 # define a function to change the verbs to their correct third person singular form.
 # if the verbs end up with y, changed y to -ies.
@@ -108,6 +116,9 @@ print(make_3sg_form('x')) # test output
 # Question 6 
 vowel="aeiou" # create a list to save all vowel
 consonant="qwrtpsdfghjklzxcvbnm" # create a list to save all consonant
+
+## Prof G - Nice but not quite corrrect. Try "die". Also, you accept an input
+## Prof G - parameter x, but then prompt the user for x and overwrite it.
 def make_ing_form(x):
 # define a function to change the verbs to their correct ing form
 # if the verb end up with e, changes e to -ing.
@@ -132,6 +143,7 @@ print(make_ing_form('x')) # test output
 
 
 # Question 7 
+## Prof G - parameter x, but then prompt the user for x and overwrite it.
 from functools import reduce 
 # import higher order function reduce from module
 def max_in_list(x):
@@ -146,6 +158,8 @@ print(max_in_list('x')) # test output
 
 # Question 8 
 ## using for loop 
+
+## Prof G - parameter x, but then prompt the user for x and overwrite it.
 def listlength(x):  
 # define a function list the length of a list of words as integers using for loop
    items=input('enter your lists:').split()  
@@ -166,6 +180,8 @@ def listlength(x):
 print(listlength('x')) # test output [4, 3, 6]
 
 # using list comprehensions 
+
+## Prof G - parameter x, but then prompt the user for x and overwrite it.
 def listlength(x):
 # define a function list the length of a list of words as integers using list comprehensions
     x=input('enter your lists:').split()
@@ -177,6 +193,8 @@ print(listlength('list1'))# test output [4, 3, 6]
 
 
 # Question 9 
+
+## Prof G - parameter x, but then prompt the user for x and overwrite it.
 def find_longest_word(x):
 # defne a funcion takses a list of words and returns the length of the longest one
     x=input('enter your lists:').split()
@@ -187,6 +205,8 @@ print(find_longest_word('x')) # test output 6
 
 
 # Question 10 
+
+## Prof G - parameter x, but then prompt the user for x and overwrite it.
 def filter_long_words(x, n):
     x=input('enter your lists:').split()
     # inpuit whatever list you want
