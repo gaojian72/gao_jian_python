@@ -69,6 +69,12 @@ for i in column[0:4]:
 '''
 Plot a bar chart for the nominal column.
 '''
+##Prof G - Your code does not produce the desired output. Try this.
+
+data.groupby('class').size().plot(kind='bar')
+
+##Prof G - end of G's code
+
 plot.figure('sepal length bar')# create a new figure
 data['sepal length'].plot.bar()# box plot
 plot.figure('sepal width bar')
