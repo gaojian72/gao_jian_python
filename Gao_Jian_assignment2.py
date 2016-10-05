@@ -8,6 +8,10 @@ Group c
 
 """
 
+##Prof G - This does not work. Part of the reason is that the reason is that the
+##Prof G - "is_palindrome" function calls a function called "reverse", which is
+##Prof G - undefined.
+
 # Question 1
 def palindrome(string):
     """"
@@ -59,6 +63,8 @@ palindrome_file('C:/GJ/110.txt')
     
 
 # Question 2
+##Prof G - This does not work. there is no checking that the word pairs are 
+##Prof G - actually semordnilap
 def semordnilap(file):
     '''
     This function works  that accepts a file name (pointing to a list of words)
@@ -82,6 +88,7 @@ semordnilap('C:/GJ/110.txt')
 
 
 # Question 3
+##Prof G - Nice, handles mixed case but should not count blanks and CR's
 def char_freq_table(file):
     '''
     This function accepts a file name from the user, builds a frequency listing of
@@ -121,6 +128,7 @@ d={'a':'alfa', 'b':'bravo', 'c':'charlie', 'd':'delta',
 'y':'yankee', 'z':'zulu'} #define dictionary d
 import os 
 import time
+##Prof G - Does not work on my machine
 def speak_out(string,ICAO_pause,word_pause_time):
     '''
     This function translate string into ICAO words and speak the out.
@@ -137,10 +145,13 @@ def speak_out(string,ICAO_pause,word_pause_time):
                 time.sleep(ICAO_pause)
             # pause between ICAO words
     time.sleep(word_pause_time)# pause between words.
-speak_out('Fuck you Python',0.5,1,3)
+    
+##Prof G - Inappropriate test phrase
+speak_out('Fuck you Python',0.5,3)
     
     
 # Question 5 
+##Prof G - Works well.
 def hapax(file):
     '''
     Define a function that gives the file of text words only appear once
@@ -169,6 +180,9 @@ print(hapax('C:/GJ/110.txt'))
     
 
 # Question 6
+##Prof G - This will not work properly if file contains the full path name. May 
+##Prof G - consider accepting both the input and output file or finding a more
+##Prof G - robust method of creating an output file name (using regex)
 def numberfile(file):
     '''
     This function gives a text file will create a new text file in
@@ -188,6 +202,7 @@ numberfile('C:/GJ/110.txt')
     
 # Question 7 
 def average(file):
+    ##Prof G - Nice, works well.
     '''
     Define a function average to calculate the average word length
     of a text in a file.
@@ -212,6 +227,7 @@ print(average('C:/GJ/110.txt'))
     
     
 # Question 8 
+##Prof G - Should make this a function. Otherwise, it works well.
 '''
 This program is able to play the 'Guess the number' game.
 Parameter:
@@ -253,10 +269,14 @@ answer='lingo'
 while True:
     guess=input('Enter your guess word:')
     new=''
+    
     for i in range(len(guess)):
         if guess[i] in answer[i]:
             new+='['+guess[i]+']' 
             # add [] to the correct character with correct order
+        ##Prof G - This is meant to mean, in the word but in the wrong position.
+        ##Prof G - If I guess lllll the output should be [l]llll (there are no
+        ##Prof G - more l's after the first position)
         elif guess[i] in answer:
             new+='('+guess[i]+')'
             # add () to the correct character but with incorrect order 
@@ -274,6 +294,7 @@ while True:
 import re
 
 def splitter(file_name):
+    ##Prof G - Did not work on my test file.
     '''
     This function opens a txt file and works as a sentence splitter to
     write its sentences with each sentences on a separate line.
