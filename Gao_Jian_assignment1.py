@@ -6,15 +6,19 @@ Homework 1 Group C
 
 @author: Jian Gao
 """
-
-## Prof G - None of your functions contained doc headers like the example I
-## Prof G - provided in class.
-## Prof G - Try using the help function with one of your functions.
 # Question 1.    
 d = {'merry': 'god', 'god':'merry', 'christmas': 'jul', 'jul':'christmas',
 'and': 'och', 'och':'and','happy': 'gott', 'gott':'happy', 
 'new':'nytt','nytt':'new','year': 'år','år':'year'}
 def translate(x): 
+      '''
+    define a new function named translate()
+    This function used to translate English words into Swedish words in the dictionary d listed. 
+    Parameter:
+    list of word in English
+    Return:
+    list 
+    '''
     a=""
     for i in x.split():
         if i in d:
@@ -25,12 +29,17 @@ def translate(x):
 print(translate('merry christmas and happy new year'))
 #############################################################
 # Question 1 another version 
-## Prof G - Nice alternate!
 d = {"merry": "god", "christmas": "jul", "and": "och", 
       "happy": "gott", "new": "nytt", "year": "år"}
 def translate(x): 
-# define a new function named translate()
-#This function used to translate English words into Swedish words in the dictionary d listed. 
+    '''
+    define a new function named translate()
+    This function used to translate English words into Swedish words in the dictionary d listed. 
+    Parameter:
+    list of word in English
+    Return:
+    list of word in Swedish
+    '''
     y = [] # define an array y to save Swedish vocabulary
     for i in x: # manipulate every elements in parameter x by using for loop.  
         y += [d[i]] # put the dictionary elements in array y. 
@@ -41,7 +50,13 @@ print(translate(['merry','christmas','and','happy','new','year'])) # test output
 
 # Question 2.
 def char_freq(x): 
-# define a new function named char_freq() to calculate the fereuqncy of the listing characters.
+    '''
+    define a new function named char_freq() to calculate the fereuqncy of the listing characters.
+    Parameter:
+    list of string
+    Return:
+    number 
+    '''
     d = {} # define a dictiontionary d to save characters and it's frequency
     print(x)    
     for i in range(len(x)): # manipulate every characters in inputstring x
@@ -64,8 +79,14 @@ key = {'a':'n', 'b':'o',
 'S':'F', 'T':'G', 'U':'H', 'V':'I', 'W':'J', 'X':'K', 'Y':'L',
 'Z':'M'} 
 def encoderanddecoder(x):
-# define a new function to encode and decode strings from dictionary key.
-# find the following letter for each one in dictionary key
+    '''
+    define a new function to encode and decode strings from dictionary key.
+    find the following letter for each one in dictionary key
+    Parameter:
+    list of strings
+    Return:
+    corresponding list of strings in the dictionary
+    '''
     a= "" #declare a new empty variable a
     for i in x:
         if i in key: 
@@ -80,13 +101,18 @@ print(encoderanddecoder('Pnrfne pvcure? V zhpu cersre Pnrfne fnynq!'))
 
 
 # Question 4.
-## Prof G - Great implementation
 import re 
 def correct(x):
-# define a new function that takes string and sees to it that 
-#1) two or more occurrences of the spac character is compressed into one, and 
-#2) inserts an extra space after a period if the period is directly followed by a letter.     
-# My idea is to seperate two cases, one is delete the space and another is add space between the words
+    '''
+    define a new function that takes string and sees to it that 
+    1) two or more occurrences of the spac character is compressed into one, and 
+    2) inserts an extra space after a period if the period is directly followed by a letter.     
+    My idea is to seperate two cases, one is delete the space and another is add space between the words
+    Parameter:
+    List of strings
+    Return:
+    list of strings
+    '''
   x=re.sub('\ +',' ',x) #substitue spaces between words to one space
   x=re.sub('\.','. ',x) #substitue period end with no space
   return (x)
@@ -94,13 +120,17 @@ print(correct("This  is very funny    and cool.Indeed!"))
 
 
 # Question 5. 
-
-## Prof G - parameter x, but then prompt the user for x and overwrite it.
 def make_3sg_form(x):
-# define a function to change the verbs to their correct third person singular form.
-# if the verbs end up with y, changed y to -ies.
-# if the verbs end up with "o,ch,s,sh,x,z" then add -es    
-# else just add -s at the end.
+    '''
+    define a function to change the verbs to their correct third person singular form.
+    if the verbs end up with y, changed y to -ies.
+    if the verbs end up with "o,ch,s,sh,x,z" then add -es    
+    else just add -s at the end.
+    Parameter:
+    input werb
+    Return:
+    corresponding correct third person singular form
+    '''
   es=('o','ch','s','sh','x','z') # create a list to save those words whose end up with "o,ch,s,sh,x,z"
   x=input('Enter your verb:') # create a variable x which you can type whatever words you want 
   if x.endswith('y'): 
@@ -116,21 +146,24 @@ print(make_3sg_form('x')) # test output
 # Question 6 
 vowel="aeiou" # create a list to save all vowel
 consonant="qwrtpsdfghjklzxcvbnm" # create a list to save all consonant
-
-## Prof G - Nice but not quite corrrect. Try "die". Also, you accept an input
-## Prof G - parameter x, but then prompt the user for x and overwrite it.
 def make_ing_form(x):
-# define a function to change the verbs to their correct ing form
-# if the verb end up with e, changes e to -ing.
-# if the verb end up with ie, chenges -ie to y and add up -ing.
-# if the last three letter of the verb is a consonant, vowel and consonant then repeat the last letter and add up -ing.  
+    '''
+    define a function to change the verbs to their correct ing form
+    if the verb end up with e, changes e to -ing.
+    if the verb end up with ie, chenges -ie to y and add up -ing.
+    if the last three letter of the verb is a consonant, vowel and consonant then repeat the last letter and add up -ing.  
+    Parameter:
+    a verb
+    Return:
+    corresponding correct -ing form of the verb
+    '''
     x=input('Enter your verb:') 
     # create a variable x which you can type whatever words you want
-    if x.endswith('e'):
+    if x.endswith('e') and x[-2] in consonant:
         x=x.replace(x[-1],'ing') 
         # case 1: if the verb ends up with e, changes -e to -ing.
     elif x.endswith('ie'):
-        x=x.replace(x[-2],'ying') 
+        x=x.replace(x[-2:],'y')+'ing'
         # case 2: if the verb ends up with ie, changes -ie to y and add up -ing.
     elif x[-3] in consonant and x[-2] in vowel and x[-1] in consonant:
         x=x+x[-1]+'ing' 
@@ -143,11 +176,16 @@ print(make_ing_form('x')) # test output
 
 
 # Question 7 
-## Prof G - parameter x, but then prompt the user for x and overwrite it.
 from functools import reduce 
 # import higher order function reduce from module
 def max_in_list(x):
-# define a function to find the maximum number in a list of number 
+    '''
+    define a function to find the maximum number in a list of number 
+    Parameter:
+    a list of numbers
+    Return:
+    the largest number in this list
+    '''
     x=[int(i) for i in input('enter your numbers:').split()]
     # create a list x to input whatever number you like into that list 
     return reduce(max, x) 
@@ -158,10 +196,14 @@ print(max_in_list('x')) # test output
 
 # Question 8 
 ## using for loop 
-
-## Prof G - parameter x, but then prompt the user for x and overwrite it.
 def listlength(x):  
-# define a function list the length of a list of words as integers using for loop
+    '''
+    define a function list the length of a list of words as integers using for loop
+    Parameter:
+    list of words
+    Return:
+    numbers 
+    '''
    items=input('enter your lists:').split()  
    # input whatever list you want like "Fuck You Python"
    list1=[] # create an empty lsit
@@ -172,18 +214,27 @@ def listlength(x):
 print(listlength('items')) # test output [4, 3, 6]
     
 # using the higher order function map()
-def listlength(x):
-# define a function list the length of a list of words as integers using function map()    
+def listlength(x):'''
+    define a function list the length of a list of words as integers using function map()    
+    Parameter:
+    list of words
+    Return:
+    numbers 
+    '''
     x=input('enter your lists:').split()
     # input whatever list you want like "Fuck You Python"
     return list(map(len,x))
 print(listlength('x')) # test output [4, 3, 6]
 
 # using list comprehensions 
-
-## Prof G - parameter x, but then prompt the user for x and overwrite it.
 def listlength(x):
-# define a function list the length of a list of words as integers using list comprehensions
+    '''
+    define a function list the length of a list of words as integers using list comprehensions
+    Parameter:
+    list of words
+    Return:
+    numbers 
+    '''
     x=input('enter your lists:').split()
     # inpuit whatever list you want like "Fuck You Python"
     list1=[len(i) for i in x] 
@@ -193,10 +244,13 @@ print(listlength('list1'))# test output [4, 3, 6]
 
 
 # Question 9 
-
-## Prof G - parameter x, but then prompt the user for x and overwrite it.
 def find_longest_word(x):
-# defne a funcion takses a list of words and returns the length of the longest one
+    '''
+    defne a funcion takses a list of words and returns the length of the longest one
+    Patermeter list of words x
+    Return:
+    the longest length of x
+    '''
     x=input('enter your lists:').split()
     # inpuit whatever list you want like "Fuck You Python"
     return max(map(len,x))
@@ -205,9 +259,15 @@ print(find_longest_word('x')) # test output 6
 
 
 # Question 10 
-
-## Prof G - parameter x, but then prompt the user for x and overwrite it.
 def filter_long_words(x, n):
+    '''
+    define a function to find the word which have the length less than the requie 
+    number n
+    Parameter:
+    a list of word x and require number n
+    Return:
+    list of word satisfies the requirement 
+    '''
     x=input('enter your lists:').split()
     # inpuit whatever list you want
     #n=input('enter the value for n:')
@@ -221,6 +281,14 @@ print(filter_long_words('x',3))
 d = {"merry": "god", "christmas": "jul", "and": "och", 
       "happy": "gott", "new": "nytt", "year": "år"}
 def translate(x): 
+    '''
+    define a new function named translate()
+    This function used to translate English words into Swedish words in the dictionary d listed. 
+    Parameter:
+    list of word in English
+    Return:
+    list of word in Swedish
+    '''
     return list(map(d.get,x))
     #return the value from the given dictionary d
 print(translate(['merry','christmas','and','happy','new','year']))
@@ -261,7 +329,7 @@ print(filter(lambda x:x>3, 'items'))
 # the output shuld be [4, 5]
 
 ## define a function reduce()
-def reduce(items):
+def reduce1(items):
 # define a function reduce() with a list:items    
     items=[1, 2, 3, 4, 5, 6]
     # create a list including some integers
@@ -271,6 +339,6 @@ def reduce(items):
         item1.append(max(items))
     # put the maximum value of list items into list item1
     return item1
-print(reduce('item1'))
+print(reduce1('item1'))
 
 ############### Done!!!! #############################################
